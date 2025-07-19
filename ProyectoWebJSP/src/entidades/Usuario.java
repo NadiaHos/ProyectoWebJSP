@@ -10,8 +10,8 @@ public class Usuario {
     private String contrasena;
     private boolean estado;
 
-    private Cliente cliente;              // Asociado si el usuario es cliente
-    private TipoUsuario tipoUsuario;     // Siempre presente (admin, cliente, etc.)
+    private Cliente cliente;
+    private TipoUsuario tipoUsuario;
 
     public Usuario() {
     }
