@@ -24,7 +24,7 @@ public class ServletLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         // Si acceden por GET, los mando al login.jsp (o donde tengas tu login)
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("Login.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -46,18 +46,18 @@ public class ServletLogin extends HttpServlet {
 
             // Redireccionar según tipo de usuario
             if (usuarioEncontrado.esAdmin()) {
-                response.sendRedirect("admin.jsp");
+                response.sendRedirect("AdminDashboard.jsp");
             } else if (usuarioEncontrado.esCliente()) {
-                response.sendRedirect("cliente.jsp");
+                response.sendRedirect("ClienteDashboard.jsp");
             } else {
                 // Si es otro tipo o no definido
                 request.setAttribute("error", "Tipo de usuario no válido.");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
         } else {
             // Usuario o contraseña incorrectos
             request.setAttribute("error", "Usuario o contraseña incorrectos.");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
     }
 }
