@@ -4,10 +4,10 @@ import entidades.Cliente;
 import entidades.TipoUsuario;
 
 public class Usuario {
-	
+
     private int idUsuario;
     private String usuario;
-    private String contrasena;
+    private String password;
     private boolean estado;
 
     private Cliente cliente;
@@ -33,12 +33,12 @@ public class Usuario {
         this.usuario = usuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isEstado() {
@@ -73,5 +73,4 @@ public class Usuario {
     public boolean esAdmin() {
         return cliente == null && tipoUsuario != null && tipoUsuario.getDescripcion().equalsIgnoreCase("admin");
     }
-
 }
