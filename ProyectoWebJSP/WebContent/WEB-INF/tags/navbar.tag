@@ -71,19 +71,21 @@
         </ul>
       </div>
       <!-- Botones a la derecha -->
-      <div class="d-flex ms-auto">
-        <%
-          if (userRole != null && !userRole.isEmpty()) {
-        %>
-            <a href="${pageContext.request.contextPath}/Login.jsp" class="btn btn-outline-danger me-2">Cerrar sesión</a>
-        <%
-          } else {
-        %>
-            <a href="${pageContext.request.contextPath}/Login.jsp" class="btn btn-outline-primary me-2">Iniciar sesión</a>
-        <%
-          }
-        %>
-      </div>
+		<div class="d-flex ms-auto">
+		  <%
+		    String currentPage = request.getRequestURI();
+		
+		    if (userRole != null && !userRole.isEmpty()) {
+		  %>
+		      <a href="${pageContext.request.contextPath}/LogoutServlet" class="btn btn-outline-danger me-2">Cerrar sesión</a>
+		  <%
+		    } else if (!currentPage.endsWith("/Login.jsp")) {
+		  %>
+		      <a href="${pageContext.request.contextPath}/Login.jsp" class="btn btn-outline-primary me-2">Iniciar sesión</a>
+		  <%
+		    }
+		  %>
+		</div>
     </div>
   </div>
 </nav>
